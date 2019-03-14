@@ -14,22 +14,21 @@ public class SelectablePage extends MainPage {
     private WebElement iFrame;
 
 
-    private final static String URL = BASE_URL+"selectable/";
+    private final static String URL = BASE_URL + "selectable/";
 
     public SelectablePage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    public SelectablePage open()
-    {
+    public SelectablePage open() {
         driver.get(URL);
         return this;
     }
 
     public void selectItem(int location) {
         driver.switchTo().frame(iFrame);
-        selectableItems.findElement(By.xpath("//li[text()='Item "+location+"']")).click();
+        selectableItems.findElement(By.xpath("//li[text()='Item " + location + "']")).click();
         driver.switchTo().defaultContent();
     }
 }

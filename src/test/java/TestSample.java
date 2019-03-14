@@ -10,8 +10,7 @@ public class TestSample {
     WebDriver driver;
 
     @BeforeClass
-    public void init()
-    {
+    public void init() {
         driver = DriverSingleton.getDriver();
         MainPage page = new MainPage(driver);
         page.open();
@@ -20,13 +19,12 @@ public class TestSample {
     @Test
     public void dragItemTest() throws InterruptedException {
 
-       MainPage page = new MainPage(driver);
-       page.clickButtonDemos()
-               .clickButtonDraggable()
-               .dragItemAround(128, 60);
+        MainPage page = new MainPage(driver);
+        page.clickButtonDemos()
+                .clickButtonDraggable()
+                .dragItemAround(128, 60);
 
     }
-
 
     @Test
     public void dropItemTest() throws InterruptedException {
@@ -38,13 +36,12 @@ public class TestSample {
 
     }
 
-
     @Test
     public void resizeItemTest() throws InterruptedException {
 
         MainPage page = new MainPage(driver);
         page.clickButtonDemos()
-                .clickButtonResizable().resizeElement(100,60);
+                .clickButtonResizable().resizeElement(100, 60);
 
     }
 
@@ -60,18 +57,15 @@ public class TestSample {
     @Test
     public void sortItemsTest() throws InterruptedException {
 
-        // 5 -> 2 работает
-        // 2 -> 5 не работает
+        // sortItems() - костыль, чтобы работало
         MainPage page = new MainPage(driver);
         page.clickButtonDemos()
                 .clickButtonSortable()
-                .sortItems("Item 6", "Item 2");
-
+                .sortItems("Item 5", "Item 2");
     }
 
     @AfterClass
-    public void closeBrowser()
-    {
+    public void closeBrowser() {
         DriverSingleton.closeDriver();
     }
 }
