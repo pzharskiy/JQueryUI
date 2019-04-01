@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
+import reporting.MyLogger;
 
 public class DroppablePage extends MainPage {
 
@@ -31,6 +32,7 @@ public class DroppablePage extends MainPage {
     public void dropElementToDroppableSpace() {
         driver.switchTo().frame(iFrame);
         action.dragAndDrop(draggableElement, droppablePlace).build().perform();
+        MyLogger.info("Drop Item successfully!");
         driver.switchTo().defaultContent();
     }
 }

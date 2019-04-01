@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
+import reporting.MyLogger;
 
 public class DraggablePage extends MainPage {
 
@@ -27,6 +28,7 @@ public class DraggablePage extends MainPage {
     public void dragItemAround(int x, int y) {
         driver.switchTo().frame(iFrame);
         action.dragAndDropBy(draggableElement, x, y).build().perform();
+        MyLogger.info("Drag Item successfully!");
         driver.switchTo().defaultContent();
     }
 }

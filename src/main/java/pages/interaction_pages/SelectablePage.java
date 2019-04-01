@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
+import reporting.MyLogger;
 
 public class SelectablePage extends MainPage {
 
@@ -29,6 +30,7 @@ public class SelectablePage extends MainPage {
     public void selectItem(int location) {
         driver.switchTo().frame(iFrame);
         selectableItems.findElement(By.xpath("//li[text()='Item " + location + "']")).click();
+        MyLogger.info("Select Item successfully!");
         driver.switchTo().defaultContent();
     }
 }

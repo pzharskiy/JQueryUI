@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
+import reporting.MyLogger;
 
 public class SortablePage extends MainPage {
 
@@ -40,6 +41,7 @@ public class SortablePage extends MainPage {
             action.moveToElement(targetPlace, 170, -10).build().perform();
             action.release(movableItem).build().perform();
         }
+        MyLogger.info("Sorted elements successfully! Element: "+item+ " was moved before " + replacableItem);
         driver.switchTo().defaultContent();
     }
 

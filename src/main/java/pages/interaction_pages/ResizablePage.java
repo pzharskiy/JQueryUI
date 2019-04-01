@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
+import reporting.MyLogger;
 
 public class ResizablePage extends MainPage {
 
@@ -32,6 +33,7 @@ public class ResizablePage extends MainPage {
     {
         driver.switchTo().frame(iFrame);
         action.dragAndDropBy(resizablePart, x, y).build().perform();
+        MyLogger.info("Resize element successfully!");
         driver.switchTo().defaultContent();
     }
 }
